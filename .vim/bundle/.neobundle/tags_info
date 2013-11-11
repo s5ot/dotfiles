@@ -1,5 +1,6 @@
 Align
 dbext.vim
+jasmine.vim
 neobundle.vim
 neocomplcache
 neosnippet
@@ -12,8 +13,10 @@ syntastic
 unite-rails
 unite-rake
 unite.vim
+vim-coffee-script
 vim-endwise
 vim-fugitive
+vim-indent-guides
 vim-ref
 vim-ref-ri
 vim-rsense

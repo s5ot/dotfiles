@@ -45,8 +45,8 @@ set nocompatible               " Be iMproved
 filetype off                   " Required!
 
 if has('vim_starting')
-        set runtimepath+=~/.vim/bundle/neobundle.vim
-        call neobundle#rc(expand('~/.vim/bundle/'))
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
 NeoBundle 'Shougo/neobundle.vim'
@@ -97,6 +97,13 @@ NeoBundle 'https://github.com/scrooloose/syntastic.git'
 
 " github 以外のリポジトリ (3)
 "NeoBundle "git://git.wincent.com/command-t.git"
+
+" Syntax + 自動compile
+NeoBundle 'kchmck/vim-coffee-script'
+" js BDDツール
+NeoBundle 'claco/jasmine.vim'
+" indentの深さに色を付ける
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " ファイルタイプ判定をon
 filetype plugin indent on
@@ -189,6 +196,7 @@ set encoding=utf-8    " デフォルトエンコーディング
 
 autocmd BufRead, BufNewFile *.html set ft=html
 autocmd BufRead, BufNewFile *.js set ft=javascript
+autocmd BufRead, BufNewFile, BufReadPre *.coffee  set filetype=coffee
 
 " 以下のファイルの時は文字コードをutf-8に設定
 autocmd FileType svn :set fileencoding=utf-8
@@ -200,6 +208,7 @@ autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
 autocmd FileType ruby :set fileencoding=utf-8 sw=2 ts=2 sts=2
+autocmd FileType coffee :set fileencoding=utf-8 sw=2 ts=2 sts=2
 
 " 指定文字コードで強制的にファイルを開く
 command! Cp932 edit ++enc=cp932
@@ -322,3 +331,20 @@ nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 "        let g:neocomplcache_omni_patterns = {}
 "endif
 "let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+
+"------------------------------------
+" indent_guides
+"------------------------------------
+" インデントの深さに色を付ける
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=0
+let g:indent_guides_color_change_percent=20
+let g:indent_guides_guide_size=1
+let g:indent_guides_space_guides=1
+
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=237
+au FileType coffee,ruby,javascript,python IndentGuidesEnable
+nmap <silent><Leader>ig <Plug>IndentGuidesToggle
