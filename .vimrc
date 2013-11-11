@@ -68,7 +68,7 @@ NeoBundle 'taichouchou2/vim-rsense'
 
 " コメント
 "NeoBundle 'tomtom/tcomment_vim'　　
-NeoBundle 'taichouchou2/surround.vim'
+NeoBundle 'surround.vim'
 
 "" railsサポート
 "NeoBundle 'taichouchou2/vim-rails'　　
@@ -78,8 +78,8 @@ NeoBundle 'basyura/unite-rails'
 
 " reference環境
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'taichouchou2/vim-ref-ri'
-NeoBundle 'taq/vim-rspec'
+NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'thoughtbot/vim-rspec'
 
 " vim-scripts リポジトリ (1)
 "NeoBundle "rails.vim"
