@@ -64,7 +64,7 @@ NeoBundle 'vim-scripts/dbext.vim'
 " 補完
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'taichouchou2/vim-rsense'
+" NeoBundle 'taichouchou2/vim-rsense'
 
 " コメント
 "NeoBundle 'tomtom/tcomment_vim'　　
