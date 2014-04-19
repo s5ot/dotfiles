@@ -57,6 +57,7 @@ NeoBundle 'Shougo/vimproc',  {
                         \    },
                         \ }
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'ruby-matchit'
 NeoBundle 'vim-scripts/dbext.vim'
