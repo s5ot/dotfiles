@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/sohta/release-mobi-connect-14.0/ginger/app/assets/javascripts'
-let g:netrw_dirhist_2='/Users/sohta/fig/s/app/assets/javascripts/s'
-let g:netrw_dirhist_3='/Users/sohta/fig/s/app/assets/stylesheets/s'
-let g:netrw_dirhist_4='/Users/sohta/release-mobi-connect-14.0'
