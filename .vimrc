@@ -201,9 +201,9 @@ autocmd BufRead, BufNewFile, BufReadPre *.coffee  set filetype=coffee
 " 以下のファイルの時は文字コードをutf-8に設定
 autocmd FileType svn :set fileencoding=utf-8
 autocmd FileType js :set fileencoding=utf-8 sw=4 ts=4 sts=4
-autocmd FileType javascript :set fileencoding=utf-8 sw=4 ts=4 sts=4
+autocmd FileType javascript :set fileencoding=utf-8 sw=2 ts=2 sts=2
 autocmd FileType css :set fileencoding=utf-8
-autocmd FileType html :set fileencoding=utf-8 sw=4 ts=4 sts=4
+autocmd FileType html :set fileencoding=utf-8 sw=2 ts=2 sts=2
 autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
