@@ -64,8 +64,7 @@ NeoBundle 'vim-scripts/dbext.vim'
 
 " 補完
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-" NeoBundle 'taichouchou2/vim-rsense'
+"NeoBundle 'Shougo/neosnippet'
 
 " コメント
 "NeoBundle 'tomtom/tcomment_vim'　　
@@ -85,8 +84,7 @@ NeoBundle 'thoughtbot/vim-rspec'
 " vim-scripts リポジトリ (1)
 "NeoBundle "rails.vim"
 "NeoBundle "bufferlist.vim"
-"NeoBundle "YankRing.vim"
-"NeoBundle 'project.tar.gz'
+NeoBundle "YankRing.vim"
 
 " github の任意のリポジトリ (2)
 "NeoBundle "gmarik/vundle"
@@ -95,16 +93,17 @@ NeoBundle 'ujihisa/quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'https://github.com/vim-scripts/Align.git'
 NeoBundle 'https://github.com/scrooloose/syntastic.git'
-
 " github 以外のリポジトリ (3)
 "NeoBundle "git://git.wincent.com/command-t.git"
-
 " Syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
 " js BDDツール
 NeoBundle 'claco/jasmine.vim'
 " indentの深さに色を付ける
 NeoBundle 'nathanaelkane/vim-indent-guides'
+
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle "pangloss/vim-javascript"
 
 " ファイルタイプ判定をon
 filetype plugin indent on
@@ -373,3 +372,12 @@ aug MyAutoCmd
   au User Rails call UniteRailsSetting()
 aug END
 "}}}
+
+"------------------------------------
+" Simple-Javascript-Indenter
+"------------------------------------
+" この設定入れるとshiftwidthを1にしてインデントしてくれる
+let g:SimpleJsIndenter_BriefMode = 1
+" " この設定入れるとswitchのインデントがいくらかマシに
+let g:SimpleJsIndenter_CaseIndentLevel = -1
+
