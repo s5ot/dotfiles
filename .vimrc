@@ -104,6 +104,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle "pangloss/vim-javascript"
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'einars/js-beautify'
 
 " ファイルタイプ判定をon
 filetype plugin indent on
@@ -200,7 +202,6 @@ autocmd BufRead, BufNewFile, BufReadPre *.coffee  set filetype=coffee
 
 " 以下のファイルの時は文字コードをutf-8に設定
 autocmd FileType svn :set fileencoding=utf-8
-autocmd FileType js :set fileencoding=utf-8 sw=4 ts=4 sts=4
 autocmd FileType javascript :set fileencoding=utf-8 sw=2 ts=2 sts=2
 autocmd FileType css :set fileencoding=utf-8
 autocmd FileType html :set fileencoding=utf-8 sw=2 ts=2 sts=2
@@ -311,29 +312,6 @@ endfunction
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 "------------------------------------
-"" vim-rsense
-"------------------------------------
-""{{{
-" Rsense
-"let g:rsenseUseOmniFunc = 1
-"let g:rsenseHome = expand('~/.vim/ref/rsense-0.3')
-"
-"function! SetUpRubySetting()
-"        setlocal completefunc=RSenseCompleteFunction
-"        nmap <buffer>tj :RSenseJumpToDefinition<CR>
-"        nmap <buffer>tk :RSenseWhereIs<CR>
-"        nmap <buffer>td :RSenseTypeHelp<CR>
-"endfunction
-"autocmd FileType ruby,eruby,ruby.rspec call SetUpRubySetting()
-""}}}
-"
-"if !exists('g:neocomplcache_omni_patterns')
-"        let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-
-"------------------------------------
 " indent_guides
 "------------------------------------
 " インデントの深さに色を付ける
@@ -346,7 +324,7 @@ let g:indent_guides_space_guides=1
 
 hi IndentGuidesOdd  ctermbg=235
 hi IndentGuidesEven ctermbg=237
-au FileType coffee,ruby,javascript,python IndentGuidesEnable
+au FileType coffee,ruby,python IndentGuidesEnable
 nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 
 "------------------------------------
@@ -378,6 +356,19 @@ aug END
 "------------------------------------
 " この設定入れるとshiftwidthを1にしてインデントしてくれる
 let g:SimpleJsIndenter_BriefMode = 1
-" " この設定入れるとswitchのインデントがいくらかマシに
+"" " この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 
+"------------------------------------
+" maksimr/vim-jsbeautify
+"------------------------------------
+"map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
