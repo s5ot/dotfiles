@@ -3,6 +3,7 @@
 "-------------------------------------------------------------------------------
 set nocompatible                 " Vimっす。vi互換なしっす。
 set noswapfile                   " スワップファイル作らない
+set noundofile                   " Undoファイル作らない
 set nobackup                     " バックアップ取らない
 set textwidth=0                  " 一行に長い文章を書いていても自動折り返しをしない
 set autoread                     " 他で書き換えられたら自動で読み直す
@@ -90,7 +91,7 @@ NeoBundle "YankRing.vim"
 "NeoBundle "gmarik/vundle"
 NeoBundle "tpope/vim-fugitive"
 NeoBundle 'ujihisa/quickrun'
-NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'https://github.com/vim-scripts/Align.git'
 NeoBundle 'https://github.com/scrooloose/syntastic.git'
 " github 以外のリポジトリ (3)
@@ -106,6 +107,7 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle "pangloss/vim-javascript"
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'einars/js-beautify'
+NeoBundle 'Shougo/vimfiler'
 
 " ファイルタイプ判定をon
 filetype plugin indent on
@@ -309,7 +311,7 @@ endfunction
 "-------------------------------------------------------------------------------
 " NERDTree
 "-------------------------------------------------------------------------------
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+"nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 "------------------------------------
 " indent_guides
@@ -364,11 +366,21 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 "------------------------------------
 "map <c-f> :call JsBeautify()<cr>
 " or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-j> :call JsBeautify()<cr>
 " for html
-"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-j> :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-j> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-j> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-j> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-j> :call RangeCSSBeautify()<cr>
+
+"------------------------------------
+" Unite bookmark Enterでcd
+"------------------------------------
+autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
+
+"------------------------------------
+" vimfiler
+"------------------------------------
+let g:vimfiler_as_default_explorer=1
