@@ -109,6 +109,18 @@ NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'Shougo/vimfiler'
 
+"------------------------------------
+" golang
+"------------------------------------
+set runtimepath+=$GOROOT/misc/vim
+"golint
+exe "set rtp+=" . globpath($GOPATH,  "src/github.com/golang/lint/misc/vim")
+NeoBundleLazy 'Blackrush/vim-gocode',  {"autoload": {"filetypes": ['go']}}
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
+
 " ファイルタイプ判定をon
 filetype plugin indent on
 
@@ -212,6 +224,7 @@ autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
 autocmd FileType ruby :set fileencoding=utf-8 sw=2 ts=2 sts=2
 autocmd FileType coffee :set fileencoding=utf-8 sw=2 ts=2 sts=2
+autocmd FileType go :set fileencoding=utf-8 sw=4 ts=4 sts=4
 
 " 指定文字コードで強制的にファイルを開く
 command! Cp932 edit ++enc=cp932
@@ -384,3 +397,4 @@ autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
 " vimfiler
 "------------------------------------
 let g:vimfiler_as_default_explorer=1
+
