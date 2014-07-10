@@ -112,9 +112,14 @@ NeoBundle 'Shougo/vimfiler'
 "------------------------------------
 " golang
 "------------------------------------
-set runtimepath+=$GOROOT/misc/vim
+if $GOROOT != ''
+    set runtimepath+=$GOROOT/misc/vim
+endif
 "golint
-exe "set rtp+=" . globpath($GOPATH,  "src/github.com/golang/lint/misc/vim")
+if $GOPATH != ''
+    set runtimepath+=$GOPATH/src/github.com/golang/lint/misc/vim
+endif
+autocmd BufWritePost, FileWritePost *.go execute 'Lint' | cwindow
 NeoBundleLazy 'Blackrush/vim-gocode',  {"autoload": {"filetypes": ['go']}}
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
@@ -397,4 +402,3 @@ autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
 " vimfiler
 "------------------------------------
 let g:vimfiler_as_default_explorer=1
-
