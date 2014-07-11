@@ -44,6 +44,7 @@ vnoremap <S-SPACE> <C-u>
 "-------------------------------------------------------------------------------
 set nocompatible               " Be iMproved
 filetype off                   " Required!
+filetype plugin indent off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
@@ -271,8 +272,6 @@ augroup END
 autocmd BufWritePre * :%s/\s\+$//ge
 " 保存時にtabをスペースに変換する
 autocmd BufWritePre * :%s/\t/  /ge
-
-
 
 "-------------------------------------------------------------------------------
 " BufferList
