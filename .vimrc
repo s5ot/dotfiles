@@ -42,7 +42,6 @@ vnoremap <S-SPACE> <C-u>
 "-------------------------------------------------------------------------------
 " NeoBundle
 "-------------------------------------------------------------------------------
-set nocompatible               " Be iMproved
 filetype off                   " Required!
 filetype plugin indent off
 
@@ -61,7 +60,7 @@ NeoBundle 'Shougo/vimproc',  {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'ruby-matchit'
+"NeoBundle 'ruby-matchit'
 NeoBundle 'vim-scripts/dbext.vim'
 
 " 補完
@@ -401,3 +400,5 @@ autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
 " vimfiler
 "------------------------------------
 let g:vimfiler_as_default_explorer=1
+
+source $VIMRUNTIME/macros/matchit.vim
