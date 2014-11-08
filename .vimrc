@@ -47,7 +47,7 @@ filetype plugin indent off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
 NeoBundle 'Shougo/neobundle.vim'
@@ -108,6 +108,9 @@ NeoBundle "pangloss/vim-javascript"
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle "wookiehangover/jshint.vim"
+
+
 
 "------------------------------------
 " golang
@@ -136,6 +139,8 @@ if neobundle#exists_not_installed_bundles()
         echomsg 'Please execute ":NeoBundleInstall" command.'
         "finish
 endif
+
+call neobundle#end()
 
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
@@ -284,12 +289,6 @@ let g:qb_hotkey = "<silent> <C-L>"
 " neocomplcache
 "-------------------------------------------------------------------------------
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-
-"-------------------------------------------------------------------------------
-" JSLint
-"-------------------------------------------------------------------------------
-" Use Node.js for JavaScript interpretation
-let $JS_CMD='node'
 
 "-------------------------------------------------------------------------------
 " unite.vim
