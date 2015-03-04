@@ -94,6 +94,9 @@ NeoBundle 'ujihisa/quickrun'
 "NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'https://github.com/vim-scripts/Align.git'
 NeoBundle 'https://github.com/scrooloose/syntastic.git'
+"let g:syntastic_mode_map = { 'mode': 'passive',  'active_filetypes': ['ruby'] }
+"let g:syntastic_ruby_checkers = ['rubocop']
+
 " github 以外のリポジトリ (3)
 "NeoBundle "git://git.wincent.com/command-t.git"
 " Syntax + 自動compile
@@ -141,6 +144,7 @@ if neobundle#exists_not_installed_bundles()
 endif
 
 call neobundle#end()
+
 
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
