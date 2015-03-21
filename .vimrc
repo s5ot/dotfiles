@@ -112,6 +112,7 @@ NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle "wookiehangover/jshint.vim"
+NeoBundle "elzr/vim-json"
 
 
 
@@ -227,6 +228,21 @@ set encoding=utf-8    " デフォルトエンコーディング
 autocmd BufRead, BufNewFile *.html set ft=html
 autocmd BufRead, BufNewFile *.js set ft=javascript
 autocmd BufRead, BufNewFile, BufReadPre *.coffee  set filetype=coffee
+"autocmd BufRead, BufNewFile, BufReadPre *.son  set filetype=json
+"autocmd BufNewFile, BufRead *.json set ft=javascript
+"autocmd BufRead, BufNewFile *.json set ft=json
+"au! BufRead, BufNewFile *.json set filetype=json
+"for JSON syntax
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json setlocal autoindent
+  autocmd FileType json setlocal formatoptions=tcq2l
+  autocmd FileType json setlocal textwidth=78 shiftwidth=2
+  autocmd FileType json setlocal softtabstop=2 tabstop=8
+  autocmd FileType json setlocal expandtab
+  "autocmd FileType json setlocal foldmethod=syntax
+augroup END
 
 " 以下のファイルの時は文字コードをutf-8に設定
 autocmd FileType svn :set fileencoding=utf-8
@@ -239,6 +255,7 @@ autocmd FileType scala :set fileencoding=utf-8
 autocmd FileType ruby :set fileencoding=utf-8 sw=2 ts=2 sts=2
 autocmd FileType coffee :set fileencoding=utf-8 sw=2 ts=2 sts=2
 autocmd FileType go :set fileencoding=utf-8 sw=4 ts=4 sts=4
+autocmd FileType json :set fileencoding=utf-8 sw=2 ts=2 sts=2
 
 " 指定文字コードで強制的にファイルを開く
 command! Cp932 edit ++enc=cp932
